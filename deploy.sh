@@ -10,8 +10,7 @@ docker push livemoneky1300/multi-server:$SHA
 docker push livemoneky1300/multi-worker:$SHA
 
 
-kubctl apply -f k8s
-kubctl set image deployments/server-deployment server=livemoneky1300/multi-server:$SHA
-kubctl set image deployments/client-deployment server=livemoneky1300/multi-client:$SHA
-kubctl set image deployments/worker-deployment server=livemoneky1300/multi-worker:$SHA
-git rm --cached service-account.json
+kubectl apply -f k8s
+kubectl set image deployments/server-deployment server=livemoneky1300/multi-server:$SHA
+kubectl set image deployments/client-deployment server=livemoneky1300/multi-client:$SHA
+kubectl set image deployments/worker-deployment server=livemoneky1300/multi-worker:$SHA
